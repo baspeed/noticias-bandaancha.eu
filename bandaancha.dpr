@@ -16,12 +16,13 @@
 
 
 program bandaancha;
+{$MAXPAGESIZE 16384}
 
 uses
   System.StartUpCopy,
   FMX.Forms,
-  Android.JNI.Toast in 'H:\Delphi_Comp\Toast\Android.JNI.Toast.pas',
-  Unit1 in 'Unit1.pas' {Form1};
+  Unit1 in 'Unit1.pas' {Form1},
+  Android.JNI.Toast in '..\Componentes\Toast\Android.JNI.Toast.pas';
 
 {$R *.res}
 

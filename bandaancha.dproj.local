@@ -1,5 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
-  <ActiveMobileDevice>   <NoProfile Android64="a505b1fc" Android="a505b1fc"/>
-  </ActiveMobileDevice>
+	<ActiveMobileDevice>
+		<NoProfile Android64="a505b1fc" Android="a505b1fc"/>
+	</ActiveMobileDevice>
+	<BT_BuildType>Debug</BT_BuildType>
 </BorlandProject>

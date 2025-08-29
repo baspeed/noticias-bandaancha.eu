@@ -2,6 +2,7 @@ inherited Form1_LgXhdpiPh: TForm1_LgXhdpiPh
   ClientHeight = 695
   ClientWidth = 450
   Fill.Kind = Solid
+  FullScreen = True
   OnActivate = FormActivate
   OnCreate = FormCreate
   OnKeyDown = FormKeyDown
@@ -52,7 +53,7 @@ inherited Form1_LgXhdpiPh: TForm1_LgXhdpiPh
         Size.Height = 25.000000000000000000
         TextSettings.Font.Size = 13.000000000000000000
         TextSettings.Font.StyleExt = {00040000000200000004000000}
-        TextSettings.VertAlign = Leading
+        TextSettings.VertAlign = Trailing
         inherited SpeedButton5: TSpeedButton
           Align = Right
           IconTintColor = claDarkorange
@@ -112,6 +113,41 @@ inherited Form1_LgXhdpiPh: TForm1_LgXhdpiPh
         Size.PlatformDefault = False
         AutoOpenLink = False
       end
+      inherited SpeedButton1: TSpeedButton
+        IconTintColor = claDarkorange
+        Position.X = -10.000000000000000000
+        Position.Y = 434.000000000000000000
+        Size.Width = 48.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'cameratoolbutton'
+      end
+      inherited SpeedButton15: TSpeedButton
+        Position.X = 73.000000000000000000
+        Position.Y = 434.000000000000000000
+        StyleLookup = 'composetoolbutton'
+      end
+      inherited Label27: TLabel
+        StyledSettings = [Family, FontColor]
+        Position.X = 32.000000000000000000
+        Position.Y = 446.000000000000000000
+        Size.Width = 33.000000000000000000
+        Size.Height = 20.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Family = 'Roboto'
+        TextSettings.Font.Size = 13.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.HorzAlign = Center
+        TextSettings.Trimming = None
+        Text = '0'
+      end
+      inherited Label28: TLabel
+        StyledSettings = [Family, FontColor]
+        Position.X = 121.000000000000000000
+        Position.Y = 448.000000000000000000
+        Size.Width = 33.000000000000000000
+        Size.Height = 18.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+      end
     end
     inherited Rectangle2: TRectangle
       Position.Y = 540.000000000000000000
@@ -141,6 +177,7 @@ inherited Form1_LgXhdpiPh: TForm1_LgXhdpiPh
         Size.Height = 25.000000000000000000
         TextSettings.Font.Size = 13.000000000000000000
         TextSettings.Font.StyleExt = {00040000000200000004000000}
+        TextSettings.VertAlign = Trailing
         inherited SpeedButton6: TSpeedButton
           Margins.Top = -15.000000000000000000
           Position.X = 367.000000000000000000
@@ -163,6 +200,21 @@ inherited Form1_LgXhdpiPh: TForm1_LgXhdpiPh
         Position.Y = 300.000000000000000000
         Size.Width = 415.000000000000000000
         AutoOpenLink = False
+      end
+      inherited Label29: TLabel
+        Position.Y = 446.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+      end
+      inherited SpeedButton16: TSpeedButton
+        Position.Y = 434.000000000000000000
+      end
+      inherited Label30: TLabel
+        Position.Y = 448.000000000000000000
+        Size.Height = 17.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+      end
+      inherited SpeedButton17: TSpeedButton
+        Position.Y = 434.000000000000000000
       end
     end
     inherited Rectangle3: TRectangle
@@ -193,6 +245,7 @@ inherited Form1_LgXhdpiPh: TForm1_LgXhdpiPh
         Size.Height = 25.000000000000000000
         TextSettings.Font.Size = 13.000000000000000000
         TextSettings.Font.StyleExt = {00040000000200000004000000}
+        TextSettings.VertAlign = Trailing
         inherited SpeedButton7: TSpeedButton
           Margins.Top = -15.000000000000000000
           Position.X = 367.000000000000000000
@@ -215,6 +268,26 @@ inherited Form1_LgXhdpiPh: TForm1_LgXhdpiPh
         Position.Y = 300.000000000000000000
         Size.Width = 415.000000000000000000
         AutoOpenLink = False
+      end
+      inherited Label31: TLabel
+        Position.X = 121.000000000000000000
+        Position.Y = 445.000000000000000000
+        Size.Height = 27.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+      end
+      inherited SpeedButton18: TSpeedButton
+        Position.X = 73.000000000000000000
+        Position.Y = 434.000000000000000000
+      end
+      inherited Label32: TLabel
+        Position.X = 32.000000000000000000
+        Position.Y = 445.000000000000000000
+        Size.Height = 27.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+      end
+      inherited SpeedButton19: TSpeedButton
+        Position.X = -10.000000000000000000
+        Position.Y = 434.000000000000000000
       end
     end
     inherited Rectangle4: TRectangle
@@ -245,6 +318,7 @@ inherited Form1_LgXhdpiPh: TForm1_LgXhdpiPh
         Size.Height = 25.000000000000000000
         TextSettings.Font.Size = 13.000000000000000000
         TextSettings.Font.StyleExt = {00040000000200000004000000}
+        TextSettings.VertAlign = Trailing
         inherited SpeedButton8: TSpeedButton
           Margins.Top = -15.000000000000000000
           Position.X = 367.000000000000000000
@@ -267,6 +341,22 @@ inherited Form1_LgXhdpiPh: TForm1_LgXhdpiPh
         Position.Y = 300.000000000000000000
         Size.Width = 415.000000000000000000
         AutoOpenLink = False
+      end
+      inherited Label33: TLabel
+        Position.Y = 445.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+      end
+      inherited SpeedButton20: TSpeedButton
+        Position.X = 73.000000000000000000
+        Position.Y = 434.000000000000000000
+      end
+      inherited Label34: TLabel
+        Position.Y = 445.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+      end
+      inherited SpeedButton21: TSpeedButton
+        Position.X = -10.000000000000000000
+        Position.Y = 434.000000000000000000
       end
     end
     inherited Rectangle5: TRectangle
@@ -297,6 +387,7 @@ inherited Form1_LgXhdpiPh: TForm1_LgXhdpiPh
         Size.Height = 25.000000000000000000
         TextSettings.Font.Size = 13.000000000000000000
         TextSettings.Font.StyleExt = {00040000000200000004000000}
+        TextSettings.VertAlign = Trailing
         inherited SpeedButton9: TSpeedButton
           Margins.Top = -15.000000000000000000
           Position.X = 367.000000000000000000
@@ -319,6 +410,24 @@ inherited Form1_LgXhdpiPh: TForm1_LgXhdpiPh
         Position.Y = 300.000000000000000000
         Size.Width = 415.000000000000000000
         AutoOpenLink = False
+      end
+      inherited Label35: TLabel
+        Position.X = 121.000000000000000000
+        Position.Y = 445.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+      end
+      inherited SpeedButton22: TSpeedButton
+        Position.X = 73.000000000000000000
+        Position.Y = 434.000000000000000000
+      end
+      inherited Label36: TLabel
+        Position.X = 32.000000000000000000
+        Position.Y = 445.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+      end
+      inherited SpeedButton23: TSpeedButton
+        Position.X = -10.000000000000000000
+        Position.Y = 434.000000000000000000
       end
     end
     inherited Rectangle6: TRectangle
@@ -349,6 +458,7 @@ inherited Form1_LgXhdpiPh: TForm1_LgXhdpiPh
         Size.Height = 25.000000000000000000
         TextSettings.Font.Size = 13.000000000000000000
         TextSettings.Font.StyleExt = {00040000000200000004000000}
+        TextSettings.VertAlign = Trailing
         inherited SpeedButton10: TSpeedButton
           Margins.Top = -15.000000000000000000
           Position.X = 367.000000000000000000
@@ -371,6 +481,24 @@ inherited Form1_LgXhdpiPh: TForm1_LgXhdpiPh
         Position.Y = 300.000000000000000000
         Size.Width = 415.000000000000000000
         AutoOpenLink = False
+      end
+      inherited SpeedButton24: TSpeedButton
+        Position.X = -10.000000000000000000
+        Position.Y = 434.000000000000000000
+      end
+      inherited Label37: TLabel
+        Position.X = 32.000000000000000000
+        Position.Y = 445.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+      end
+      inherited SpeedButton25: TSpeedButton
+        Position.X = 73.000000000000000000
+        Position.Y = 434.000000000000000000
+      end
+      inherited Label38: TLabel
+        Position.X = 121.000000000000000000
+        Position.Y = 445.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
       end
     end
     inherited Rectangle7: TRectangle
@@ -401,6 +529,7 @@ inherited Form1_LgXhdpiPh: TForm1_LgXhdpiPh
         Size.Height = 25.000000000000000000
         TextSettings.Font.Size = 13.000000000000000000
         TextSettings.Font.StyleExt = {00040000000200000004000000}
+        TextSettings.VertAlign = Trailing
         inherited SpeedButton11: TSpeedButton
           Margins.Top = -15.000000000000000000
           Position.X = 367.000000000000000000
@@ -423,6 +552,24 @@ inherited Form1_LgXhdpiPh: TForm1_LgXhdpiPh
         Position.Y = 300.000000000000000000
         Size.Width = 415.000000000000000000
         AutoOpenLink = False
+      end
+      inherited Label39: TLabel
+        Position.X = 121.000000000000000000
+        Position.Y = 445.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+      end
+      inherited SpeedButton26: TSpeedButton
+        Position.X = 73.000000000000000000
+        Position.Y = 434.000000000000000000
+      end
+      inherited Label40: TLabel
+        Position.X = 32.000000000000000000
+        Position.Y = 445.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+      end
+      inherited SpeedButton27: TSpeedButton
+        Position.X = -10.000000000000000000
+        Position.Y = 434.000000000000000000
       end
     end
     inherited Rectangle8: TRectangle
@@ -453,6 +600,7 @@ inherited Form1_LgXhdpiPh: TForm1_LgXhdpiPh
         Size.Height = 25.000000000000000000
         TextSettings.Font.Size = 13.000000000000000000
         TextSettings.Font.StyleExt = {00040000000200000004000000}
+        TextSettings.VertAlign = Trailing
         inherited SpeedButton12: TSpeedButton
           Margins.Top = -15.000000000000000000
           Position.X = 367.000000000000000000
@@ -475,6 +623,25 @@ inherited Form1_LgXhdpiPh: TForm1_LgXhdpiPh
         Position.Y = 300.000000000000000000
         Size.Width = 415.000000000000000000
         AutoOpenLink = False
+      end
+      inherited Label41: TLabel
+        Position.X = 121.000000000000000000
+        Position.Y = 445.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        OnClick = Label41Click
+      end
+      inherited SpeedButton28: TSpeedButton
+        Position.X = 73.000000000000000000
+        Position.Y = 434.000000000000000000
+      end
+      inherited Label42: TLabel
+        Position.X = 32.000000000000000000
+        Position.Y = 445.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+      end
+      inherited SpeedButton29: TSpeedButton
+        Position.X = -10.000000000000000000
+        Position.Y = 434.000000000000000000
       end
     end
     inherited Rectangle9: TRectangle
@@ -500,6 +667,7 @@ inherited Form1_LgXhdpiPh: TForm1_LgXhdpiPh
         Size.Height = 25.000000000000000000
         TextSettings.Font.Size = 13.000000000000000000
         TextSettings.Font.StyleExt = {00040000000200000004000000}
+        TextSettings.VertAlign = Trailing
         inherited SpeedButton13: TSpeedButton
           Margins.Top = -15.000000000000000000
           Position.X = 367.000000000000000000
@@ -526,6 +694,24 @@ inherited Form1_LgXhdpiPh: TForm1_LgXhdpiPh
         Position.Y = 300.000000000000000000
         Size.Width = 415.000000000000000000
         AutoOpenLink = False
+      end
+      inherited SpeedButton30: TSpeedButton
+        Position.X = -10.000000000000000000
+        Position.Y = 434.000000000000000000
+      end
+      inherited Label43: TLabel
+        Position.X = 32.000000000000000000
+        Position.Y = 445.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+      end
+      inherited SpeedButton31: TSpeedButton
+        Position.X = 73.000000000000000000
+        Position.Y = 434.000000000000000000
+      end
+      inherited Label44: TLabel
+        Position.X = 121.000000000000000000
+        Position.Y = 445.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
       end
     end
     inherited Rectangle10: TRectangle
@@ -556,6 +742,7 @@ inherited Form1_LgXhdpiPh: TForm1_LgXhdpiPh
         Size.Height = 25.000000000000000000
         TextSettings.Font.Size = 13.000000000000000000
         TextSettings.Font.StyleExt = {00040000000200000004000000}
+        TextSettings.VertAlign = Trailing
         inherited SpeedButton14: TSpeedButton
           Margins.Top = -15.000000000000000000
           Position.X = 367.000000000000000000
@@ -579,6 +766,24 @@ inherited Form1_LgXhdpiPh: TForm1_LgXhdpiPh
         Size.Width = 415.000000000000000000
         AutoOpenLink = False
       end
+      inherited Label45: TLabel
+        Position.X = 121.000000000000000000
+        Position.Y = 445.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+      end
+      inherited SpeedButton32: TSpeedButton
+        Position.X = 73.000000000000000000
+        Position.Y = 434.000000000000000000
+      end
+      inherited Label46: TLabel
+        Position.X = 32.000000000000000000
+        Position.Y = 445.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+      end
+      inherited SpeedButton33: TSpeedButton
+        Position.X = -10.000000000000000000
+        Position.Y = 434.000000000000000000
+      end
     end
   end
   inherited ToolBar1: TToolBar
@@ -596,7 +801,7 @@ inherited Form1_LgXhdpiPh: TForm1_LgXhdpiPh
       TextSettings.Font.Size = 17.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       TextSettings.FontColor = claDarkorange
-      Text = 'Noticias bandaancha.eu (v2.8.2.2163)'
+      Text = 'Noticias bandaancha.eu (v2.9.3.2719)'
     end
     inherited SpeedButton2: TSpeedButton
       Align = Right

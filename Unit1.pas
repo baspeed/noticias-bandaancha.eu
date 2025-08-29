@@ -1,7 +1,7 @@
 // ---------------------------------------------------------------------------------
 //  Noticias bandaancha.eu v2
 //
-//  v2.8.2.2163
+//  v2.9.3.2719
 //  Por José Ignacio Legido Barrios (usuario djnacho de bandaancha.eu)
 //  Creado para la comunidad de usuarios de bandaancha.eu
 //
@@ -10,7 +10,7 @@
 //
 // Creada inicialmente en Delphi 10.2 Tokyo
 //
-// Versión actual creada en Delphi 11.2 Alexandria
+// Versión actual creada en Delphi 12.3 Athens
 //
 // Feed de noticias descargado directamente de bandaancha.eu para evitar la lentitud
 // de actualización de feedburner.com
@@ -26,6 +26,9 @@
 // de forma que ahora se pueden compartir los enlaces con cualquier aplicación que lo permita en el dispositivo (no sólo con facebook o
 // X(Twitter))
 // 31-08-2024: Se cambia el código en el parser XML del feed de bandaancha para poder mostrar las noticias correctamente.
+// 10-08-2025: Se cambia el formato de la app a Full Screen para que no le afecten la barra de estado ni los botones inferiores de Android.
+// 29-08-2025: Se añaden la cantidad de visualizaciones del artículo y el número de comentarios del mismo. También se limita la cantidad de caracteres
+//             de la descripción para que quede dentro de los límites de su recuadro.
 // ---------------------------------------------------------------------------------
 
 unit Unit1;
@@ -163,7 +166,47 @@ type
     Image14: TImage;
     Label25: TLabel;
     Image15: TImage;
-    Label26: TLabel;      // Acción de compartir el enlace de la noticia 10
+    Label26: TLabel;
+    SpeedButton1: TSpeedButton;
+    SpeedButton15: TSpeedButton;
+    Label27: TLabel;
+    Label28: TLabel;
+    Label29: TLabel;
+    SpeedButton16: TSpeedButton;
+    Label30: TLabel;
+    SpeedButton17: TSpeedButton;
+    Label31: TLabel;
+    SpeedButton18: TSpeedButton;
+    Label32: TLabel;
+    SpeedButton19: TSpeedButton;
+    Label33: TLabel;
+    SpeedButton20: TSpeedButton;
+    Label34: TLabel;
+    SpeedButton21: TSpeedButton;
+    Label35: TLabel;
+    SpeedButton22: TSpeedButton;
+    Label36: TLabel;
+    SpeedButton23: TSpeedButton;
+    SpeedButton24: TSpeedButton;
+    Label37: TLabel;
+    SpeedButton25: TSpeedButton;
+    Label38: TLabel;
+    Label39: TLabel;
+    SpeedButton26: TSpeedButton;
+    Label40: TLabel;
+    SpeedButton27: TSpeedButton;
+    Label41: TLabel;
+    SpeedButton28: TSpeedButton;
+    Label42: TLabel;
+    SpeedButton29: TSpeedButton;
+    SpeedButton30: TSpeedButton;
+    Label43: TLabel;
+    SpeedButton31: TSpeedButton;
+    Label44: TLabel;
+    Label45: TLabel;
+    SpeedButton32: TSpeedButton;
+    Label46: TLabel;
+    SpeedButton33: TSpeedButton;      // Acción de compartir el enlace de la noticia 10
     procedure AbreBandaAncha(Sender: TObject);    // Rutina para abrir la página de bandaancha.eu
     procedure AbreForos(Sender: TObject);         // Rutina para abrir la página de foros de bandaancha.eu
     procedure AbreForoApp(Sender: TObject);       // Rutina para abrir el foro de BASpeed dentro de bandaancha.eu
@@ -212,6 +255,7 @@ type
     procedure Button4Click(Sender: TObject);
     procedure Button5Click(Sender: TObject);
     procedure Button6Click(Sender: TObject);
+    procedure Label41Click(Sender: TObject);
 
   private
     { Private declarations }
@@ -261,7 +305,7 @@ end;
 
 procedure TForm1.AbrePaginaDJNacho(Sender: TObject);
 begin
-     AbreURL('https://baspeed.synology.me/djnacho');    // Llama a la rutina para abrir la URL en el navegador interno de la aplicación
+     AbreURL('https://sites.google.com/view/nacholegido');    // Llama a la rutina para abrir la URL en el navegador interno de la aplicación
 end;
 
 
@@ -503,6 +547,11 @@ begin
 end;
 
 
+procedure TForm1.Label41Click(Sender: TObject);
+begin
+
+end;
+
 // Rutina que muestra la noticia número 3 si se pulsa el título / imagen de la noticia
 
 procedure TForm1.Label5Tap(Sender: TObject; const Point: TPointF);
@@ -557,7 +606,7 @@ end;
 procedure TForm1.RellenaCampos;
 
 var
-   xml: string;                 // Variable que guarda todo el código XML que devuelve feedburner.com
+   xml,xml2: string;                 // Variable que guarda todo el código XML que devuelve feedburner.com
    cadena, subcadena: string;   // Cadenas de caracteres para operaciones varias
    titulo: string;              // Cadena de caracteres que contiene el título de una noticia
    contenido: string;           // Cadena de caracteres que contiene el contenido de una noticia
@@ -572,11 +621,12 @@ var
    urlimagen: string;           // Cadena de caracteres que guarda la URL de la noticia
    memoria: TMemoryStream;      // Zona de memoria para guardar una imagen
    descripcion: string;         // Cadena de caracteres que contiene una descripción de la noticia (dentro del contenido desde el primer <p> hasta el primer </p>)
-   dia, mes, anio: string;
-   horatemp: TDateTime;
-   intentosdescargaarchivo: Word;
-   Notificacion: TNotification;
-   cadenatitulo: TStringList;
+   dia, mes, anio: string;      // Dia, mes y año de la publicación
+   horatemp: TDateTime;         // Fecha hora temporal
+   intentosdescargaarchivo: Word;   // Número de descargas (para mostrar la imagen por defecto)
+   Notificacion: TNotification;     // Objeto que muestra las notificaciones
+   cadenatitulo: TStringList;       // Título
+   lecturas, comentarios: string;   // Número de lecturas y comentarios del artículo (extraídos directamente del artículo)
 
 begin
      DzHTMLText2.Lines.Clear;   // Limpia la descripción de la noticia 1
@@ -784,6 +834,13 @@ begin
 
                            cadena:=ReplaceStr(cadena,'<a href=','<a:');  // Se reemplaza el <a href=" con <a: que es el tag de enlace de DzHTMLText
 
+                           {** Parte nueva para limitar la descripción del artículo si es demasiado larga **}
+
+                           if (length(cadena)>400+length('<b><i><fc:DarkOrange>...Abrir para leer más...</fc></i></b>')) then
+                              begin
+                                    setlength(cadena,400+length('<b><i><fc:clDarkOrange>...Abrir para leer más...</fc></i></b>'));  // Si la cadena tiene más de 200 caracteres, se acorta la cadena a 200 caracteres
+                                    cadena:=cadena+'<b><i><fc:DarkOrange>...Abrir para leer más...</fc></i></b>';
+                              end;
 
                            TThread.Synchronize(nil,procedure                                                 // Inicia hilo asíncrono para mostrar la descripción de la noticia
                            begin
@@ -830,6 +887,74 @@ begin
                    posicion2:=pos('"/>',subcadena,posicion);                                         // Busca dentro de subcadena la cadena </link> (fin de enlace a la noticia)
                    cadenaenlace:=copy(subcadena,posicion+length('<link rel="alternate" type="text/html" href="'),posicion2-posicion-length('<link rel="alternate" type="text/html" href="'));     // Copia el enlace URL a la noticia a la variable cadenaenlace
                    enlace[indice]:=cadenaenlace;                        // Rellena el array de enlaces a noticias en el indice indicado con la cadena cadenaenlace
+
+                   {****
+                    ****
+                    Nueva sección para mostrar el número de lecturas del artículo y el número de comentarios
+                    ****
+                    ****}
+
+                    {** Rutina para obtener el número de lecturas de cada noticia **}
+
+                   intentosdescargaarchivo:=0;
+                   repeat
+                          try
+                              xml2:= IdHTTP1.Get(enlace[indice]);            // Se coge el código HTML del artículo directamente de bandaancha.eu
+                          except
+                                ;
+                          end;
+                          inc(intentosdescargaarchivo,1);
+                   until ((IdHTTP1.ResponseCode>=200) and (IdHTTP1.ResponseCode<=299)) or (intentosdescargaarchivo>3);
+
+
+                   {** Rutina para obtener el número de lecturas de cada noticia **}
+
+                   posicion:=Pos('<a class=rx',xml2,1);                      // Se busca la cadena <a class=rx ya que contiene los datos que nos interesan
+                   posicion2:=Pos('<span>',xml2,posicion);                   // Buscamos el primer <span> dentro de <a class=rx
+                   posicion:=Pos(' ',xml2,posicion2);                        // A partir de ahí buscamos el primer espacio
+                   posicion2:=Pos('</span>',xml2,posicion);                  // Se copia el contenido desde el siguiente carácter al espacio hasta el </span>
+                   subcadena:=Copy(xml2,posicion+1,posicion2-2-posicion+1);    // En subcadena ya tenemos el número de lecturas
+                   case indice of                                              // Se mira el índice de la noticia
+                        1   : Label27.Text:=subcadena;                           // Se escribe el número de lecturas en la noticia correspondiente
+                        2   : Label30.Text:=subcadena;
+                        3   : Label32.Text:=subcadena;
+                        4   : Label34.Text:=subcadena;
+                        5   : Label36.Text:=subcadena;
+                        6   : Label37.Text:=subcadena;
+                        7   : Label40.Text:=subcadena;
+                        8   : Label42.Text:=subcadena;
+                        9   : Label43.Text:=subcadena;
+                        10  : Label46.Text:=subcadena;
+                   end;
+
+                   {** Rutina para obtener el número de comentarios de cada noticia **}
+
+                   posicion:=Pos('<span>',xml2,posicion2+7);                   // Buscamos el primer <span> dentro de <a class=rx
+                   posicion2:=Pos(' ',xml2,posicion);                        // A partir de ahí buscamos el primer espacio
+                   posicion:=Pos('</span>',xml2,posicion2);                  // Se copia el contenido desde el siguiente carácter al espacio hasta el </span>
+                   subcadena:=Copy(xml2,posicion2+1,posicion-2-posicion2+1);    // En subcadena ya tenemos el número de comentarios
+                   case indice of                                              // Se mira el índice de la noticia
+                        1   : Label28.Text:=subcadena;                           // Se escribe el número de comentarios en la noticia correspondiente
+                        2   : Label29.Text:=subcadena;
+                        3   : Label31.Text:=subcadena;
+                        4   : Label33.Text:=subcadena;
+                        5   : Label35.Text:=subcadena;
+                        6   : Label38.Text:=subcadena;
+                        7   : Label39.Text:=subcadena;
+                        8   : Label41.Text:=subcadena;
+                        9   : Label44.Text:=subcadena;
+                        10  : Label45.Text:=subcadena;
+                   end;
+
+
+
+
+                   {****
+                    ****
+                    Fin nueva sección
+                    ****
+                    ****}
+
                    xml:=copy(xml,next,length(xml)-next);                                              // Pone el puntero de XML a la siguiente zona de noticias
                    TThread.Synchronize(nil,procedure                                                 // Inicia hilo asíncrono para mostrar título, autor, fecha y hora de publicación de la noticia
                    begin
