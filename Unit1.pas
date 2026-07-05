@@ -29,6 +29,9 @@
 // 10-08-2025: Se cambia el formato de la app a Full Screen para que no le afecten la barra de estado ni los botones inferiores de Android.
 // 29-08-2025: Se añaden la cantidad de visualizaciones del artículo y el número de comentarios del mismo. También se limita la cantidad de caracteres
 //             de la descripción para que quede dentro de los límites de su recuadro.
+// 02-07-2026: Se baja el límite de caracteres a 300 dentro de la descripción para que en descripciones largas quepa toda la descripcíón en el recuadro.
+//             Se cambia el acceso SSL a TLS para que sea compatible con todos los servidores y opciones SSL de internet actuales.
+//             Se quita el fullscreen para que aparezcan los controles estándar de android.
 // ---------------------------------------------------------------------------------
 
 unit Unit1;
@@ -51,7 +54,7 @@ uses
   System.Permissions, FMX.Dialogs, IdCookieManager, Androidapi.JNI.GraphicsContentViewText,
   Androidapi.JNI.Net,Androidapi.JNI.App, Androidapi.Helpers, androidapi.Jni.JavaTypes, FMX.Platform.Android,
   Androidapi.JNI.Webkit, Androidapi.JNI.Os, System.Actions, FMX.ActnList,
-  FMX.StdActns, FMX.MediaLibrary.Actions;
+  FMX.StdActns, FMX.MediaLibrary.Actions, IdCTypes;
 
 type
   TForm1 = class(TForm)             // Ventana principal de la aplicación (Main Activity de Android)
@@ -275,7 +278,6 @@ implementation
 
 var
    enlace: array[1..10] of string;       // Array de cadenas que representan los enlaces en texto de las URL a las noticias
-   indicenoticia: Word;
 
 // Rutina para abrir la web de bandaancha.eu en la aplicación
 
@@ -401,10 +403,10 @@ begin
         ficheronormas.Free;
         Panel2.Visible:=True;
         IdOpenSSLSetLibPath(TPath.GetDocumentsPath);           // Indica donde se encuentra la librería instalada para el acceso SSL                                                      // Libera la memoria de la variable de lineas de texto
-        IdHTTP1.ConnectTimeout:=10000;            // Tiempo de espera hasta conexión con servidor = 5 segundos
-        IdHTTP1.ReadTimeout:=10000;               // Tiempo de espera hasta lectura de datos del servidor = 5 segundos
-        IdSSLIOHandlerSocketOpenSSL1.ConnectTimeout:=10000;    // Tiempo de espera hasta conexión con el servidor (parte SSL) = 5 segundos
-        IdSSLIOHandlerSocketOpenSSL1.ReadTimeout:=10000;       // Tiempo de espera hasta lectura de datos del servidor (parte SSL) = 5 segundos
+        IdHTTP1.ConnectTimeout:=0;            // Tiempo de espera hasta conexión con servidor = 2 segundos
+        IdHTTP1.ReadTimeout:=0;               // Tiempo de espera hasta lectura de datos del servidor = 2 segundos
+        IdSSLIOHandlerSocketOpenSSL1.ConnectTimeout:=0;    // Tiempo de espera hasta conexión con el servidor (parte SSL) = 2 segundos
+        IdSSLIOHandlerSocketOpenSSL1.ReadTimeout:=0;       // Tiempo de espera hasta lectura de datos del servidor (parte SSL) = 2 segundos
         RellenaCampos;                                         // Llama a la rutina que rellena todos los datos de las noticias en la pantalla principal
      except                                                  // Si no existe el fichero de texto, el panel de aceptación de normas se hace visible
            ficheronormas.Free;                               // Libera la memoria de la variable de lineas de texto
@@ -606,7 +608,7 @@ end;
 procedure TForm1.RellenaCampos;
 
 var
-   xml,xml2: string;                 // Variable que guarda todo el código XML que devuelve feedburner.com
+   xml,codigoweb: string;                 // Variable que guarda todo el código XML que devuelve feedburner.com
    cadena, subcadena: string;   // Cadenas de caracteres para operaciones varias
    titulo: string;              // Cadena de caracteres que contiene el título de una noticia
    contenido: string;           // Cadena de caracteres que contiene el contenido de una noticia
@@ -661,7 +663,7 @@ begin
 
      // Si se consigue descargar el archivo correctamente en menos de tres intentos
 
-     if (intentosdescargaarchivo<3) then
+     if (intentosdescargaarchivo<=3) then
         begin
              indice:=1;                                                                           // Inicia el índice de noticias a 1
              repeat                                                                               // Bucle
@@ -830,16 +832,18 @@ begin
                            posicion2:=Pos('</p>',descripcion,posicion);                                      // Busca dentro de descripcion el </p> (fin de párrafo)
                            cadena:=Copy(descripcion,posicion+3,posicion2-posicion-3);                        // Rellena cadena con todos los caracteres entre <p> y </p>
 
+
                            // Nueva parte donde se cogen los enlaces dentro de la descripción y se ajustan al estilo del componente DzHTMLText
 
                            cadena:=ReplaceStr(cadena,'<a href=','<a:');  // Se reemplaza el <a href=" con <a: que es el tag de enlace de DzHTMLText
+                           cadena:=ReplaceStr(cadena,'<a class=fn href=',' <a:'); // Se reemplaza el enlace indirecto a un artículode la web por un enlace ficticio para que se muestre correctamente en pantalla
 
                            {** Parte nueva para limitar la descripción del artículo si es demasiado larga **}
 
-                           if (length(cadena)>400+length('<b><i><fc:DarkOrange>...Abrir para leer más...</fc></i></b>')) then
+                           if (length(cadena)+length('<b><i><fc:DarkOrange>...Más...</fc></i></b>')>300) then  // Se limita la descripción a 300 caracteres
                               begin
-                                    setlength(cadena,400+length('<b><i><fc:clDarkOrange>...Abrir para leer más...</fc></i></b>'));  // Si la cadena tiene más de 200 caracteres, se acorta la cadena a 200 caracteres
-                                    cadena:=cadena+'<b><i><fc:DarkOrange>...Abrir para leer más...</fc></i></b>';
+                                    setlength(cadena,300+length('<b><i><fc:clDarkOrange>...Más...</fc></i></b>'));  // Si la cadena tiene más de 300 caracteres, se acorta la cadena a 200 caracteres
+                                    cadena:=cadena+'<b><i><fc:DarkOrange>...Más...</fc></i></b>';
                               end;
 
                            TThread.Synchronize(nil,procedure                                                 // Inicia hilo asíncrono para mostrar la descripción de la noticia
@@ -888,6 +892,52 @@ begin
                    cadenaenlace:=copy(subcadena,posicion+length('<link rel="alternate" type="text/html" href="'),posicion2-posicion-length('<link rel="alternate" type="text/html" href="'));     // Copia el enlace URL a la noticia a la variable cadenaenlace
                    enlace[indice]:=cadenaenlace;                        // Rellena el array de enlaces a noticias en el indice indicado con la cadena cadenaenlace
 
+                   TThread.Synchronize(nil,procedure                                                 // Inicia hilo asíncrono para mostrar título, autor, fecha y hora de publicación de la noticia
+                   begin
+                        case indice of                                                                    // Dependiendo del valor de la variable indice
+                             1      : begin
+                                           Label1.Text:=titulo;                                           // Rellena título noticia 1
+                                           Label2.Text:='Autor: '+autor+', '+fecha;        // Rellena autor, fecha y hora noticia 1
+                                      end;
+                             2      : begin
+                                           Label3.Text:=titulo;                                           // Rellena título noticia 2
+                                           Label4.Text:='Autor: '+autor+', '+fecha;        // Rellena autor, fecha y hora noticia 2
+                                      end;
+                             3      : begin
+                                           Label5.Text:=titulo;                                           // Rellena título noticia 3
+                                           Label6.Text:='Autor: '+autor+', '+fecha;        // Rellena autor, fecha y hora noticia 3
+                                      end;
+                             4      : begin
+                                           Label7.Text:=titulo;                                           // Rellena título noticia 4
+                                           Label8.Text:='Autor: '+autor+', '+fecha;        // Rellena autor, fecha y hora noticia 4
+                                      end;
+                             5      : begin
+                                           Label9.Text:=titulo;                                           // Rellena título noticia 5
+                                           Label10.Text:='Autor: '+autor+', '+fecha;      // Rellena autor, fecha y hora noticia 5
+                                      end;
+                             6      : begin
+                                           Label11.Text:=titulo;                                          // Rellena título noticia 6
+                                           Label12.Text:='Autor: '+autor+', '+fecha;      // Rellena autor, fecha y hora noticia 6
+                                      end;
+                             7      : begin
+                                           Label13.Text:=titulo;                                          // Rellena título noticia 7
+                                           Label14.Text:='Autor: '+autor+', '+fecha;       // Rellena autor, fecha y hora noticia 7
+                                      end;
+                             8      : begin
+                                           Label15.Text:=titulo;                                          // Rellena título noticia 8
+                                           Label16.Text:='Autor: '+autor+', '+fecha;       // Rellena autor, fecha y hora noticia 8
+                                      end;
+                             9      : begin
+                                           Label17.Text:=titulo;                                          // Rellena título noticia 9
+                                           Label18.Text:='Autor: '+autor+', '+fecha;       // Rellena autor, fecha y hora noticia 9
+                                      end;
+                             10     : begin
+                                           Label19.Text:=titulo;                                          // Rellena título noticia 10
+                                           Label20.Text:='Autor: '+autor+', '+fecha;       // Rellena autor, fecha y hora noticia 10
+                                      end;
+                        end;
+                   end);
+
                    {****
                     ****
                     Nueva sección para mostrar el número de lecturas del artículo y el número de comentarios
@@ -896,10 +946,10 @@ begin
 
                     {** Rutina para obtener el número de lecturas de cada noticia **}
 
-                   intentosdescargaarchivo:=0;
+                   intentosdescargaarchivo:=0; // Se intenta descargar el código fuente de la web 3 veces
                    repeat
                           try
-                              xml2:= IdHTTP1.Get(enlace[indice]);            // Se coge el código HTML del artículo directamente de bandaancha.eu
+                             codigoweb:= IdHTTP1.Get(enlace[indice]);            // Se coge el código HTML del artículo directamente de bandaancha.eu
                           except
                                 ;
                           end;
@@ -909,44 +959,42 @@ begin
 
                    {** Rutina para obtener el número de lecturas de cada noticia **}
 
-                   posicion:=Pos('<a class=rx',xml2,1);                      // Se busca la cadena <a class=rx ya que contiene los datos que nos interesan
-                   posicion2:=Pos('<span>',xml2,posicion);                   // Buscamos el primer <span> dentro de <a class=rx
-                   posicion:=Pos(' ',xml2,posicion2);                        // A partir de ahí buscamos el primer espacio
-                   posicion2:=Pos('</span>',xml2,posicion);                  // Se copia el contenido desde el siguiente carácter al espacio hasta el </span>
-                   subcadena:=Copy(xml2,posicion+1,posicion2-2-posicion+1);    // En subcadena ya tenemos el número de lecturas
+                   posicion:=Pos('<a class=rx',codigoweb,1);                      // Se busca la cadena <a class=rx ya que contiene los datos que nos interesan
+                   posicion2:=Pos('<span>',codigoweb,posicion);                   // Buscamos el primer <span> dentro de <a class=rx
+                   posicion:=Pos(' ',codigoweb,posicion2);                        // A partir de ahí buscamos el primer espacio
+                   posicion2:=Pos('</span>',codigoweb,posicion);                  // Se copia el contenido desde el siguiente carácter al espacio hasta el </span>
+                   lecturas:=Copy(codigoweb,posicion+1,posicion2-posicion-1);    // En subcadena ya tenemos el número de lecturas
                    case indice of                                              // Se mira el índice de la noticia
-                        1   : Label27.Text:=subcadena;                           // Se escribe el número de lecturas en la noticia correspondiente
-                        2   : Label30.Text:=subcadena;
-                        3   : Label32.Text:=subcadena;
-                        4   : Label34.Text:=subcadena;
-                        5   : Label36.Text:=subcadena;
-                        6   : Label37.Text:=subcadena;
-                        7   : Label40.Text:=subcadena;
-                        8   : Label42.Text:=subcadena;
-                        9   : Label43.Text:=subcadena;
-                        10  : Label46.Text:=subcadena;
+                        1   : Label27.Text:=lecturas;                           // Se escribe el número de lecturas en la noticia correspondiente
+                        2   : Label30.Text:=lecturas;
+                        3   : Label32.Text:=lecturas;
+                        4   : Label34.Text:=lecturas;
+                        5   : Label36.Text:=lecturas;
+                        6   : Label37.Text:=lecturas;
+                        7   : Label40.Text:=lecturas;
+                        8   : Label42.Text:=lecturas;
+                        9   : Label43.Text:=lecturas;
+                        10  : Label46.Text:=lecturas;
                    end;
 
                    {** Rutina para obtener el número de comentarios de cada noticia **}
 
-                   posicion:=Pos('<span>',xml2,posicion2+7);                   // Buscamos el primer <span> dentro de <a class=rx
-                   posicion2:=Pos(' ',xml2,posicion);                        // A partir de ahí buscamos el primer espacio
-                   posicion:=Pos('</span>',xml2,posicion2);                  // Se copia el contenido desde el siguiente carácter al espacio hasta el </span>
-                   subcadena:=Copy(xml2,posicion2+1,posicion-2-posicion2+1);    // En subcadena ya tenemos el número de comentarios
+                   posicion:=Pos('<span>',codigoweb,posicion2+7);                   // Buscamos el primer <span> dentro de <a class=rx
+                   posicion2:=Pos(' ',codigoweb,posicion);                        // A partir de ahí buscamos el primer espacio
+                   posicion:=Pos('</span>',codigoweb,posicion2);                  // Se copia el contenido desde el siguiente carácter al espacio hasta el </span>
+                   comentarios:=Copy(codigoweb,posicion2+1,posicion-posicion2-1);    // En subcadena ya tenemos el número de comentarios
                    case indice of                                              // Se mira el índice de la noticia
-                        1   : Label28.Text:=subcadena;                           // Se escribe el número de comentarios en la noticia correspondiente
-                        2   : Label29.Text:=subcadena;
-                        3   : Label31.Text:=subcadena;
-                        4   : Label33.Text:=subcadena;
-                        5   : Label35.Text:=subcadena;
-                        6   : Label38.Text:=subcadena;
-                        7   : Label39.Text:=subcadena;
-                        8   : Label41.Text:=subcadena;
-                        9   : Label44.Text:=subcadena;
-                        10  : Label45.Text:=subcadena;
+                        1   : Label28.Text:=comentarios;                           // Se escribe el número de comentarios en la noticia correspondiente
+                        2   : Label29.Text:=comentarios;
+                        3   : Label31.Text:=comentarios;
+                        4   : Label33.Text:=comentarios;
+                        5   : Label35.Text:=comentarios;
+                        6   : Label38.Text:=comentarios;
+                        7   : Label39.Text:=comentarios;
+                        8   : Label41.Text:=comentarios;
+                        9   : Label44.Text:=comentarios;
+                        10  : Label45.Text:=comentarios;
                    end;
-
-
 
 
                    {****
@@ -956,52 +1004,6 @@ begin
                     ****}
 
                    xml:=copy(xml,next,length(xml)-next);                                              // Pone el puntero de XML a la siguiente zona de noticias
-                   TThread.Synchronize(nil,procedure                                                 // Inicia hilo asíncrono para mostrar título, autor, fecha y hora de publicación de la noticia
-                   begin
-                   case indice of                                                                    // Dependiendo del valor de la variable indice
-                        1      : begin
-                                      Label1.Text:=titulo;                                           // Rellena título noticia 1
-                                      Label2.Text:='Autor: '+autor+', '+fecha;        // Rellena autor, fecha y hora noticia 1
-                                 end;
-                        2      : begin
-                                      Label3.Text:=titulo;                                           // Rellena título noticia 2
-                                      Label4.Text:='Autor: '+autor+', '+fecha;        // Rellena autor, fecha y hora noticia 2
-                                 end;
-                        3      : begin
-                                      Label5.Text:=titulo;                                           // Rellena título noticia 3
-                                      Label6.Text:='Autor: '+autor+', '+fecha;        // Rellena autor, fecha y hora noticia 3
-                                 end;
-                        4      : begin
-                                      Label7.Text:=titulo;                                           // Rellena título noticia 4
-                                      Label8.Text:='Autor: '+autor+', '+fecha;        // Rellena autor, fecha y hora noticia 4
-                                 end;
-                        5      : begin
-                                      Label9.Text:=titulo;                                           // Rellena título noticia 5
-                                      Label10.Text:='Autor: '+autor+', '+fecha;      // Rellena autor, fecha y hora noticia 5
-                                 end;
-                        6      : begin
-                                      Label11.Text:=titulo;                                          // Rellena título noticia 6
-                                      Label12.Text:='Autor: '+autor+', '+fecha;      // Rellena autor, fecha y hora noticia 6
-                                 end;
-                        7      : begin
-                                      Label13.Text:=titulo;                                          // Rellena título noticia 7
-                                      Label14.Text:='Autor: '+autor+', '+fecha;       // Rellena autor, fecha y hora noticia 7
-                                 end;
-                        8      : begin
-                                      Label15.Text:=titulo;                                          // Rellena título noticia 8
-                                      Label16.Text:='Autor: '+autor+', '+fecha;       // Rellena autor, fecha y hora noticia 8
-                                 end;
-                        9      : begin
-                                      Label17.Text:=titulo;                                          // Rellena título noticia 9
-                                      Label18.Text:='Autor: '+autor+', '+fecha;       // Rellena autor, fecha y hora noticia 9
-                                 end;
-                        10     : begin
-                                      Label19.Text:=titulo;                                          // Rellena título noticia 10
-                                      Label20.Text:='Autor: '+autor+', '+fecha;       // Rellena autor, fecha y hora noticia 10
-                                 end;
-
-                   end;
-                   end);
               end;
           Inc(indice,1);         // Incrementa en 1 el valor de indice (siguiente noticia)
      until (indice>10);          // Repite bucle 10 veces (presenta las 10 primeras noticias de bandaancha.eu)

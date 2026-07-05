@@ -22,7 +22,7 @@ uses
   System.StartUpCopy,
   FMX.Forms,
   Unit1 in 'Unit1.pas' {Form1},
-  Android.JNI.Toast in '..\Componentes\Toast\Android.JNI.Toast.pas';
+  Android.JNI.Toast in 'C:\Componentes\Componentes\Toast\Android.JNI.Toast.pas';
 
 {$R *.res}
 
