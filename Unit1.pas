@@ -32,6 +32,7 @@
 // 02-07-2026: Se baja el límite de caracteres a 300 dentro de la descripción para que en descripciones largas quepa toda la descripcíón en el recuadro.
 //             Se cambia el acceso SSL a TLS para que sea compatible con todos los servidores y opciones SSL de internet actuales.
 //             Se quita el fullscreen para que aparezcan los controles estándar de android.
+//             Se quita de momento la visualización de lecturas y comentarios por los problemas a la hora de recoger los datos
 // ---------------------------------------------------------------------------------
 
 unit Unit1;
@@ -840,9 +841,9 @@ begin
 
                            {** Parte nueva para limitar la descripción del artículo si es demasiado larga **}
 
-                           if (length(cadena)+length('<b><i><fc:DarkOrange>...Más...</fc></i></b>')>300) then  // Se limita la descripción a 300 caracteres
+                           if (length(cadena)+length('<b><i><fc:DarkOrange>...Más...</fc></i></b>')>350) then  // Se limita la descripción a 300 caracteres
                               begin
-                                    setlength(cadena,300+length('<b><i><fc:clDarkOrange>...Más...</fc></i></b>'));  // Si la cadena tiene más de 300 caracteres, se acorta la cadena a 200 caracteres
+                                    setlength(cadena,350-length('<b><i><fc:clDarkOrange>...Más...</fc></i></b>'));  // Si la cadena tiene más de 300 caracteres, se acorta la cadena a 200 caracteres
                                     cadena:=cadena+'<b><i><fc:DarkOrange>...Más...</fc></i></b>';
                               end;
 
@@ -946,7 +947,7 @@ begin
 
                     {** Rutina para obtener el número de lecturas de cada noticia **}
 
-                   intentosdescargaarchivo:=0; // Se intenta descargar el código fuente de la web 3 veces
+                   {intentosdescargaarchivo:=0; // Se intenta descargar el código fuente de la web 3 veces
                    repeat
                           try
                              codigoweb:= IdHTTP1.Get(enlace[indice]);            // Se coge el código HTML del artículo directamente de bandaancha.eu
@@ -959,7 +960,7 @@ begin
 
                    {** Rutina para obtener el número de lecturas de cada noticia **}
 
-                   posicion:=Pos('<a class=rx',codigoweb,1);                      // Se busca la cadena <a class=rx ya que contiene los datos que nos interesan
+                   {posicion:=Pos('<a class=rx',codigoweb,1);                      // Se busca la cadena <a class=rx ya que contiene los datos que nos interesan
                    posicion2:=Pos('<span>',codigoweb,posicion);                   // Buscamos el primer <span> dentro de <a class=rx
                    posicion:=Pos(' ',codigoweb,posicion2);                        // A partir de ahí buscamos el primer espacio
                    posicion2:=Pos('</span>',codigoweb,posicion);                  // Se copia el contenido desde el siguiente carácter al espacio hasta el </span>
@@ -979,7 +980,7 @@ begin
 
                    {** Rutina para obtener el número de comentarios de cada noticia **}
 
-                   posicion:=Pos('<span>',codigoweb,posicion2+7);                   // Buscamos el primer <span> dentro de <a class=rx
+                   {posicion:=Pos('<span>',codigoweb,posicion2+7);                   // Buscamos el primer <span> dentro de <a class=rx
                    posicion2:=Pos(' ',codigoweb,posicion);                        // A partir de ahí buscamos el primer espacio
                    posicion:=Pos('</span>',codigoweb,posicion2);                  // Se copia el contenido desde el siguiente carácter al espacio hasta el </span>
                    comentarios:=Copy(codigoweb,posicion2+1,posicion-posicion2-1);    // En subcadena ya tenemos el número de comentarios

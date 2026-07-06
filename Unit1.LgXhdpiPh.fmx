@@ -119,11 +119,13 @@ inherited Form1_LgXhdpiPh: TForm1_LgXhdpiPh
         Size.Width = 48.000000000000000000
         Size.PlatformDefault = False
         StyleLookup = 'cameratoolbutton'
+        Visible = False
       end
       inherited SpeedButton15: TSpeedButton
         Position.X = 73.000000000000000000
         Position.Y = 434.000000000000000000
         StyleLookup = 'composetoolbutton'
+        Visible = False
       end
       inherited Label27: TLabel
         StyledSettings = [Family, FontColor]
@@ -138,6 +140,7 @@ inherited Form1_LgXhdpiPh: TForm1_LgXhdpiPh
         TextSettings.HorzAlign = Center
         TextSettings.Trimming = None
         Text = '0'
+        Visible = False
       end
       inherited Label28: TLabel
         StyledSettings = [Family, FontColor]
@@ -146,6 +149,7 @@ inherited Form1_LgXhdpiPh: TForm1_LgXhdpiPh
         Size.Width = 33.000000000000000000
         Size.Height = 18.000000000000000000
         TextSettings.Font.StyleExt = {00070000000000000004000000}
+        Visible = False
       end
     end
     inherited Rectangle2: TRectangle
@@ -203,17 +207,21 @@ inherited Form1_LgXhdpiPh: TForm1_LgXhdpiPh
       inherited Label29: TLabel
         Position.Y = 446.000000000000000000
         TextSettings.Font.StyleExt = {00070000000000000004000000}
+        Visible = False
       end
       inherited SpeedButton16: TSpeedButton
         Position.Y = 434.000000000000000000
+        Visible = False
       end
       inherited Label30: TLabel
         Position.Y = 448.000000000000000000
         Size.Height = 17.000000000000000000
         TextSettings.Font.StyleExt = {00070000000000000004000000}
+        Visible = False
       end
       inherited SpeedButton17: TSpeedButton
         Position.Y = 434.000000000000000000
+        Visible = False
       end
     end
     inherited Rectangle3: TRectangle
@@ -273,20 +281,24 @@ inherited Form1_LgXhdpiPh: TForm1_LgXhdpiPh
         Position.Y = 445.000000000000000000
         Size.Height = 27.000000000000000000
         TextSettings.Font.StyleExt = {00070000000000000004000000}
+        Visible = False
       end
       inherited SpeedButton18: TSpeedButton
         Position.X = 73.000000000000000000
         Position.Y = 434.000000000000000000
+        Visible = False
       end
       inherited Label32: TLabel
         Position.X = 32.000000000000000000
         Position.Y = 445.000000000000000000
         Size.Height = 27.000000000000000000
         TextSettings.Font.StyleExt = {00070000000000000004000000}
+        Visible = False
       end
       inherited SpeedButton19: TSpeedButton
         Position.X = -10.000000000000000000
         Position.Y = 434.000000000000000000
+        Visible = False
       end
     end
     inherited Rectangle4: TRectangle
@@ -344,18 +356,22 @@ inherited Form1_LgXhdpiPh: TForm1_LgXhdpiPh
       inherited Label33: TLabel
         Position.Y = 445.000000000000000000
         TextSettings.Font.StyleExt = {00070000000000000004000000}
+        Visible = False
       end
       inherited SpeedButton20: TSpeedButton
         Position.X = 73.000000000000000000
         Position.Y = 434.000000000000000000
+        Visible = False
       end
       inherited Label34: TLabel
         Position.Y = 445.000000000000000000
         TextSettings.Font.StyleExt = {00070000000000000004000000}
+        Visible = False
       end
       inherited SpeedButton21: TSpeedButton
         Position.X = -10.000000000000000000
         Position.Y = 434.000000000000000000
+        Visible = False
       end
     end
     inherited Rectangle5: TRectangle
@@ -414,19 +430,23 @@ inherited Form1_LgXhdpiPh: TForm1_LgXhdpiPh
         Position.X = 121.000000000000000000
         Position.Y = 445.000000000000000000
         TextSettings.Font.StyleExt = {00070000000000000004000000}
+        Visible = False
       end
       inherited SpeedButton22: TSpeedButton
         Position.X = 73.000000000000000000
         Position.Y = 434.000000000000000000
+        Visible = False
       end
       inherited Label36: TLabel
         Position.X = 32.000000000000000000
         Position.Y = 445.000000000000000000
         TextSettings.Font.StyleExt = {00070000000000000004000000}
+        Visible = False
       end
       inherited SpeedButton23: TSpeedButton
         Position.X = -10.000000000000000000
         Position.Y = 434.000000000000000000
+        Visible = False
       end
     end
     inherited Rectangle6: TRectangle
@@ -484,20 +504,24 @@ inherited Form1_LgXhdpiPh: TForm1_LgXhdpiPh
       inherited SpeedButton24: TSpeedButton
         Position.X = -10.000000000000000000
         Position.Y = 434.000000000000000000
+        Visible = False
       end
       inherited Label37: TLabel
         Position.X = 32.000000000000000000
         Position.Y = 445.000000000000000000
         TextSettings.Font.StyleExt = {00070000000000000004000000}
+        Visible = False
       end
       inherited SpeedButton25: TSpeedButton
         Position.X = 73.000000000000000000
         Position.Y = 434.000000000000000000
+        Visible = False
       end
       inherited Label38: TLabel
         Position.X = 121.000000000000000000
         Position.Y = 445.000000000000000000
         TextSettings.Font.StyleExt = {00070000000000000004000000}
+        Visible = False
       end
     end
     inherited Rectangle7: TRectangle
@@ -556,19 +580,23 @@ inherited Form1_LgXhdpiPh: TForm1_LgXhdpiPh
         Position.X = 121.000000000000000000
         Position.Y = 445.000000000000000000
         TextSettings.Font.StyleExt = {00070000000000000004000000}
+        Visible = False
       end
       inherited SpeedButton26: TSpeedButton
         Position.X = 73.000000000000000000
         Position.Y = 434.000000000000000000
+        Visible = False
       end
       inherited Label40: TLabel
         Position.X = 32.000000000000000000
         Position.Y = 445.000000000000000000
         TextSettings.Font.StyleExt = {00070000000000000004000000}
+        Visible = False
       end
       inherited SpeedButton27: TSpeedButton
         Position.X = -10.000000000000000000
         Position.Y = 434.000000000000000000
+        Visible = False
       end
     end
     inherited Rectangle8: TRectangle
@@ -627,20 +655,24 @@ inherited Form1_LgXhdpiPh: TForm1_LgXhdpiPh
         Position.X = 121.000000000000000000
         Position.Y = 445.000000000000000000
         TextSettings.Font.StyleExt = {00070000000000000004000000}
+        Visible = False
         OnClick = Label41Click
       end
       inherited SpeedButton28: TSpeedButton
         Position.X = 73.000000000000000000
         Position.Y = 434.000000000000000000
+        Visible = False
       end
       inherited Label42: TLabel
         Position.X = 32.000000000000000000
         Position.Y = 445.000000000000000000
         TextSettings.Font.StyleExt = {00070000000000000004000000}
+        Visible = False
       end
       inherited SpeedButton29: TSpeedButton
         Position.X = -10.000000000000000000
         Position.Y = 434.000000000000000000
+        Visible = False
       end
     end
     inherited Rectangle9: TRectangle
@@ -697,20 +729,24 @@ inherited Form1_LgXhdpiPh: TForm1_LgXhdpiPh
       inherited SpeedButton30: TSpeedButton
         Position.X = -10.000000000000000000
         Position.Y = 434.000000000000000000
+        Visible = False
       end
       inherited Label43: TLabel
         Position.X = 32.000000000000000000
         Position.Y = 445.000000000000000000
         TextSettings.Font.StyleExt = {00070000000000000004000000}
+        Visible = False
       end
       inherited SpeedButton31: TSpeedButton
         Position.X = 73.000000000000000000
         Position.Y = 434.000000000000000000
+        Visible = False
       end
       inherited Label44: TLabel
         Position.X = 121.000000000000000000
         Position.Y = 445.000000000000000000
         TextSettings.Font.StyleExt = {00070000000000000004000000}
+        Visible = False
       end
     end
     inherited Rectangle10: TRectangle
@@ -769,19 +805,23 @@ inherited Form1_LgXhdpiPh: TForm1_LgXhdpiPh
         Position.X = 121.000000000000000000
         Position.Y = 445.000000000000000000
         TextSettings.Font.StyleExt = {00070000000000000004000000}
+        Visible = False
       end
       inherited SpeedButton32: TSpeedButton
         Position.X = 73.000000000000000000
         Position.Y = 434.000000000000000000
+        Visible = False
       end
       inherited Label46: TLabel
         Position.X = 32.000000000000000000
         Position.Y = 445.000000000000000000
         TextSettings.Font.StyleExt = {00070000000000000004000000}
+        Visible = False
       end
       inherited SpeedButton33: TSpeedButton
         Position.X = -10.000000000000000000
         Position.Y = 434.000000000000000000
+        Visible = False
       end
     end
   end
@@ -800,7 +840,7 @@ inherited Form1_LgXhdpiPh: TForm1_LgXhdpiPh
       TextSettings.Font.Size = 17.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       TextSettings.FontColor = claDarkorange
-      Text = 'Noticias bandaancha.eu (v2.9.4.3075)'
+      Text = 'Noticias bandaancha.eu (v2.9.4.3090)'
     end
     inherited SpeedButton2: TSpeedButton
       Align = Right
@@ -852,157 +892,7 @@ inherited Form1_LgXhdpiPh: TForm1_LgXhdpiPh
     Size.PlatformDefault = False
     Visible = False
   end
-  inherited Panel1: TPanel
-    Align = Client
-    Size.Width = 450.000000000000000000
-    Size.Height = 647.000000000000000000
-    Size.PlatformDefault = False
-    Visible = False
-    inherited ToolBar2: TToolBar
-      Size.Width = 450.000000000000000000
-      Size.Height = 40.000000000000000000
-      Size.PlatformDefault = False
-      TintColor = claDarkslateblue
-      inherited Image12: TImage
-        MultiResBitmap.Height = 32
-        MultiResBitmap.Width = 32
-        MultiResBitmap = <
-          item
-            Width = 32
-            Height = 32
-            PNG = {
-              89504E470D0A1A0A0000000D4948445200000020000000200806000000737A7A
-              F40000000473424954080808087C086488000003F5494441545885BD97CB6F54
-              6518879FF79C39332DA59D29354E5B4B0AC49258154252844589A9168B37165E
-              AA90C8C2C48589C604176CAA1D5D68F0F20FB8D010C005D18D88415AD398C082
-              909260D22604A796C4D84B7A99693BB673FB5E17D3198761A63DED8CBEAB73DE
-              F37EBFDF73BE73BE9B50664C0EF8DF024E018D0A578D6DDE7BE8A9C5DB6EDB4B
-              39E6130375CF0BF26341FACEEC7CF4B1477B49B8D1B0CA0110E4A522E9B67ABF
-              FF71B71A6501A068D1B4A778BEE2006AC9792830136E355BD1DF2A0E70B7DFD3
-              39DEEF7C39FE61555736D7D41D1942F4B8C06D6009D18B46ADA3D245CAADAEAB
-              9F307C0ABFEDF34E00D540DCA49CD65D9FC4A6DC9AAC15AE7AC0AAAEA906AA56
-              6F7DB6375D530973D7003B43B14954DF01B9AAC8C9D6D0CA58A50036350F6808
-              6BBAB3F680AA7D00D507C5D26535FC9EB2F44A4BF7E2EC7F06A08A4C0F06DE50
-              F463A0B548495A54CF251D4F5F4BD7DC9F1505F86388AAEAA4FF1B84D75D94CF
-              A8CA2B4DCF447EAD08802A3235E83F071C075003663A85994963E20A9660D509
-              9E2607D992935C368643CD3DD1E1B201A6060227143D03A07125399AC02C99FB
-              C52CB07739789A3CD9CC68703EB2477A4997D25E771468084B453FCADC4072A4
-              B839AB3D930A2749CF66FDB47D3A50776C2DFD7501A60FD51E44D901909A4C61
-              62C5CDFFA580D458323741AB58AF9505A0C67E227B6D664AF6E4BD6D5614B398
-              05D58365018868634E78D9F52287AEE46A1B462EE0DD3400682C7769BBF6CFAF
-              8DB7BF4A72D300AA8473C5B52E0904ACAD5969191329BD3F58172099E6326496
-              57BBD91D80D56023BECC0817D5C22DDBC600B61F599813D5F390792BCF0E67CD
-              7AA9129C87739F3C81CD57650100241D4F1F3003E0D9EEC1D9ED204538EC061B
-              EFDEAADC3355391D7C3A1ABEBF320F1860F2E7600DB27C34D3AAFA87C69EA958
-              61E1C495C093227A09C8EC050C980583AE98CC54ECB772DD4E663AF8BEF15AB4
-              37CCD607B6B0B4D41CE2EFA200B33F6DAB4B38E91B02BB5773779CA4DDD1F0DC
-              DC4261F1D4E5C05EB5F916B47D8D974A807C16BC16E9BF6B7CEF839E062262D1
-              D91A4A8C16165B4927F5429E39405BCA9B7AB19872F048E456703EB247544F80
-              5CCA7E1660056454E073111E693C1CF9404218D063ABBD5CAF469E2DA6E91141
-              B4709098D28B54666159380B9C0518B980B7D42144858BA2EC03626A995F8AEA
-              CD0F0502F194DE047666328CFB6CD957DF15899482D84884FB7C6DBE747CAEE5
-              53662707026FA2E62422AA225F347547CE08C0DC40BD3F81BE8CA878D5FA6EDB
-              E1F96825CCF36362B06EBFA85CCFDB02180BE9F000AC1A7E5D69D3FCB0543AF4
-              DEFD876544F7977734DB40A8D19B05A728356986FF3780C69E85EBAAFA2EC804
-              E85F22BCDDDC131DFE075B1C7E4E2EC3B6C30000000049454E44AE426082}
-            FileName = 'I:\Nuevos Iconos\Icono_BA.ico'
-          end>
-        Align = Left
-        Margins.Left = 10.000000000000000000
-        Position.X = 10.000000000000000000
-        Size.Height = 40.000000000000000000
-        Size.PlatformDefault = False
-      end
-      inherited Label23: TLabel
-        Align = Horizontal
-        StyledSettings = [Family, Size]
-        Position.X = 60.000000000000000000
-        Size.Width = 390.000000000000000000
-        Size.PlatformDefault = False
-        TextSettings.Font.StyleExt = {00070000000000000004000000}
-        TextSettings.FontColor = claWhite
-        TextSettings.HorzAlign = Center
-        Text = 'Aceptaci'#243'n normas aplicaci'#243'n'
-      end
-    end
-    inherited ToolBar3: TToolBar
-      Align = Bottom
-      Position.Y = 607.000000000000000000
-      Size.Width = 450.000000000000000000
-      Size.Height = 40.000000000000000000
-      Size.PlatformDefault = False
-      inherited Button1: TButton
-        Align = Left
-        StyledSettings = [Family, Size]
-        Margins.Left = 10.000000000000000000
-        Margins.Right = 10.000000000000000000
-        Position.X = 10.000000000000000000
-        Size.Width = 231.000000000000000000
-        Size.Height = 40.000000000000000000
-        Size.PlatformDefault = False
-        Text = 'Aceptar normas'
-        TextSettings.Font.StyleExt = {00070000000000000004000000}
-        TextSettings.FontColor = claWhite
-        TintColor = claDarkslateblue
-        OnClick = Button1Click
-      end
-      inherited Button2: TButton
-        Align = Left
-        StyledSettings = [Family, Size]
-        Margins.Left = 10.000000000000000000
-        Margins.Right = 10.000000000000000000
-        Position.X = 261.000000000000000000
-        Size.Width = 175.000000000000000000
-        Size.Height = 40.000000000000000000
-        Size.PlatformDefault = False
-        Text = 'Cancelar y salir'
-        TextSettings.Font.StyleExt = {00070000000000000004000000}
-        TextSettings.FontColor = claWhite
-        TintColor = claCrimson
-        OnClick = Button2Click
-      end
-    end
-    inherited DzHTMLText12: TDzHTMLText
-      Align = Client
-      StyledSettings = [Family, Style, FontColor]
-      Size.Width = 450.000000000000000000
-      Size.Height = 567.000000000000000000
-      Size.PlatformDefault = False
-      Color = claWhite
-      Lines.Strings = (
-        
-          'Para poder utilizar esta aplicaci'#243'n, debes saber que <b>tienes q' +
-          'ue aceptar todas las normas de utilizaci'#243'n de los foros y los ar' +
-          't'#237'culos</b> que se aplican al portal <b>bandaancha.eu</b>.'
-        ''
-        
-          'El enlace a las normas de utilizaci'#243'n de los foros y los art'#237'cul' +
-          'os de <b>bandaancha.eu</b> es el siguiente (se abrir'#225' el navegad' +
-          'or de internet del dispositivo mostrando la p'#225'gina con las norma' +
-          's): <a:https://wiki.bandaancha.st/Normas_de_los_foros>https://wi' +
-          'ki.bandaancha.st/Normas_de_los_foros</a>'
-        ''
-        
-          'Si deseas poder seguir utilizando esta aplicaci'#243'n y el portal <b' +
-          '>bandaancha.eu</b>, cumpliendo las normas de utilizaci'#243'n de los ' +
-          'foros y los art'#237'culos, entonces pulsa el bot'#243'n <b>Aceptar normas' +
-          '</b> en la parte inferior. Este aviso se cerrar'#225' y no volver'#225' a ' +
-          'mostrarse ya que la aceptaci'#243'n de las normas se realiza una '#250'nic' +
-          'a vez al instalar y ejecutar la aplicaci'#243'n por primera vez en el' +
-          ' dispositivo.'
-        ''
-        
-          'Si no desea seguir usando esta aplicaci'#243'n, ya que puede que no e' +
-          'st'#233' de acuerdo con las normas de utilizaci'#243'n de los foros y los ' +
-          'art'#237'culos en <b>bandaancha.eu</b>, pulse el bot'#243'n Cancelar y sal' +
-          'ir para cerrar la aplicaci'#243'n y volver a Android. En la siguiente' +
-          ' ejecuci'#243'n de la aplicaci'#243'n te volver'#225' a aparecer este mensaje y' +
-          'a que no aceptaste en su momento las normas de <b>bandaancha.eu<' +
-          '/b>.')
-      Borders.All = 5.000000000000000000
-    end
-  end
-  inherited Panel2: TPanel
+  inherited Panel2: TPanel [4]
     Align = Bottom
     Position.Y = 625.000000000000000000
     Size.Width = 450.000000000000000000
@@ -1301,6 +1191,153 @@ inherited Form1_LgXhdpiPh: TForm1_LgXhdpiPh
         TextSettings.Font.StyleExt = {00070000000000000004000000}
         Text = 'djnacho'
       end
+    end
+  end
+  inherited Panel1: TPanel [5]
+    Align = Client
+    Size.Width = 450.000000000000000000
+    Size.Height = 647.000000000000000000
+    Size.PlatformDefault = False
+    inherited ToolBar2: TToolBar
+      Size.Width = 450.000000000000000000
+      Size.PlatformDefault = False
+      TintColor = claDarkslateblue
+      inherited Image12: TImage
+        MultiResBitmap.Height = 32
+        MultiResBitmap.Width = 32
+        MultiResBitmap = <
+          item
+            Width = 32
+            Height = 32
+            PNG = {
+              89504E470D0A1A0A0000000D4948445200000020000000200806000000737A7A
+              F40000000473424954080808087C086488000003F5494441545885BD97CB6F54
+              6518879FF79C39332DA59D29354E5B4B0AC49258154252844589A9168B37165E
+              AA90C8C2C48589C604176CAA1D5D68F0F20FB8D010C005D18D88415AD398C082
+              909260D22604A796C4D84B7A99693BB673FB5E17D3198761A63DED8CBEAB73DE
+              F37EBFDF73BE73BE9B50664C0EF8DF024E018D0A578D6DDE7BE8A9C5DB6EDB4B
+              39E6130375CF0BF26341FACEEC7CF4B1477B49B8D1B0CA0110E4A522E9B67ABF
+              FF71B71A6501A068D1B4A778BEE2006AC9792830136E355BD1DF2A0E70B7DFD3
+              39DEEF7C39FE61555736D7D41D1942F4B8C06D6009D18B46ADA3D245CAADAEAB
+              9F307C0ABFEDF34E00D540DCA49CD65D9FC4A6DC9AAC15AE7AC0AAAEA906AA56
+              6F7DB6375D530973D7003B43B14954DF01B9AAC8C9D6D0CA58A50036350F6808
+              6BBAB3F680AA7D00D507C5D26535FC9EB2F44A4BF7E2EC7F06A08A4C0F06DE50
+              F463A0B548495A54CF251D4F5F4BD7DC9F1505F86388AAEAA4FF1B84D75D94CF
+              A8CA2B4DCF447EAD08802A3235E83F071C075003663A85994963E20A9660D509
+              9E2607D992935C368643CD3DD1E1B201A6060227143D03A07125399AC02C99FB
+              C52CB07739789A3CD9CC68703EB2477A4997D25E771468084B453FCADC4072A4
+              B839AB3D930A2749CF66FDB47D3A50776C2DFD7501A60FD51E44D901909A4C61
+              62C5CDFFA580D458323741AB58AF9505A0C67E227B6D664AF6E4BD6D5614B398
+              05D58365018868634E78D9F52287AEE46A1B462EE0DD3400682C7769BBF6CFAF
+              8DB7BF4A72D300AA8473C5B52E0904ACAD5969191329BD3F58172099E6326496
+              57BBD91D80D56023BECC0817D5C22DDBC600B61F599813D5F390792BCF0E67CD
+              7AA9129C87739F3C81CD57650100241D4F1F3003E0D9EEC1D9ED204538EC061B
+              EFDEAADC3355391D7C3A1ABEBF320F1860F2E7600DB27C34D3AAFA87C69EA958
+              61E1C495C093227A09C8EC050C980583AE98CC54ECB772DD4E663AF8BEF15AB4
+              37CCD607B6B0B4D41CE2EFA200B33F6DAB4B38E91B02BB5773779CA4DDD1F0DC
+              DC4261F1D4E5C05EB5F916B47D8D974A807C16BC16E9BF6B7CEF839E062262D1
+              D91A4A8C16165B4927F5429E39405BCA9B7AB19872F048E456703EB247544F80
+              5CCA7E1660056454E073111E693C1CF9404218D063ABBD5CAF469E2DA6E91141
+              B4709098D28B54666159380B9C0518B980B7D42144858BA2EC03626A995F8AEA
+              CD0F0502F194DE047666328CFB6CD957DF15899482D84884FB7C6DBE747CAEE5
+              53662707026FA2E62422AA225F347547CE08C0DC40BD3F81BE8CA878D5FA6EDB
+              E1F96825CCF36362B06EBFA85CCFDB02180BE9F000AC1A7E5D69D3FCB0543AF4
+              DEFD876544F7977734DB40A8D19B05A728356986FF3780C69E85EBAAFA2EC804
+              E85F22BCDDDC131DFE075B1C7E4E2EC3B6C30000000049454E44AE426082}
+            FileName = 'I:\Nuevos Iconos\Icono_BA.ico'
+          end>
+        Align = Left
+        Margins.Left = 10.000000000000000000
+        Position.X = 10.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+      end
+      inherited Label23: TLabel
+        Align = Horizontal
+        StyledSettings = [Family, Size]
+        Position.X = 60.000000000000000000
+        Size.Width = 390.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.FontColor = claWhite
+        TextSettings.HorzAlign = Center
+        Text = 'Aceptaci'#243'n normas aplicaci'#243'n'
+      end
+    end
+    inherited ToolBar3: TToolBar
+      Align = Bottom
+      Position.Y = 599.000000000000000000
+      Size.Width = 450.000000000000000000
+      Size.PlatformDefault = False
+      inherited Button1: TButton
+        Align = Left
+        StyledSettings = [Family, Size]
+        Margins.Left = 10.000000000000000000
+        Margins.Right = 10.000000000000000000
+        Position.X = 10.000000000000000000
+        Size.Width = 231.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Aceptar normas'
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.FontColor = claWhite
+        TintColor = claDarkslateblue
+        OnClick = Button1Click
+      end
+      inherited Button2: TButton
+        Align = Left
+        StyledSettings = [Family, Size]
+        Margins.Left = 10.000000000000000000
+        Margins.Right = 10.000000000000000000
+        Position.X = 261.000000000000000000
+        Size.Width = 175.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Cancelar y salir'
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.FontColor = claWhite
+        TintColor = claCrimson
+        OnClick = Button2Click
+      end
+    end
+    inherited DzHTMLText12: TDzHTMLText
+      Align = Client
+      StyledSettings = [Family, Style, FontColor]
+      Size.Width = 450.000000000000000000
+      Size.Height = 551.000000000000000000
+      Size.PlatformDefault = False
+      Color = claWhite
+      Lines.Strings = (
+        
+          'Para poder utilizar esta aplicaci'#243'n, debes saber que <b>tienes q' +
+          'ue aceptar todas las normas de utilizaci'#243'n de los foros y los ar' +
+          't'#237'culos</b> que se aplican al portal <b>bandaancha.eu</b>.'
+        ''
+        
+          'El enlace a las normas de utilizaci'#243'n de los foros y los art'#237'cul' +
+          'os de <b>bandaancha.eu</b> es el siguiente (se abrir'#225' el navegad' +
+          'or de internet del dispositivo mostrando la p'#225'gina con las norma' +
+          's): <a:https://wiki.bandaancha.st/Normas_de_los_foros>https://wi' +
+          'ki.bandaancha.st/Normas_de_los_foros</a>'
+        ''
+        
+          'Si deseas poder seguir utilizando esta aplicaci'#243'n y el portal <b' +
+          '>bandaancha.eu</b>, cumpliendo las normas de utilizaci'#243'n de los ' +
+          'foros y los art'#237'culos, entonces pulsa el bot'#243'n <b>Aceptar normas' +
+          '</b> en la parte inferior. Este aviso se cerrar'#225' y no volver'#225' a ' +
+          'mostrarse ya que la aceptaci'#243'n de las normas se realiza una '#250'nic' +
+          'a vez al instalar y ejecutar la aplicaci'#243'n por primera vez en el' +
+          ' dispositivo.'
+        ''
+        
+          'Si no desea seguir usando esta aplicaci'#243'n, ya que puede que no e' +
+          'st'#233' de acuerdo con las normas de utilizaci'#243'n de los foros y los ' +
+          'art'#237'culos en <b>bandaancha.eu</b>, pulse el bot'#243'n Cancelar y sal' +
+          'ir para cerrar la aplicaci'#243'n y volver a Android. En la siguiente' +
+          ' ejecuci'#243'n de la aplicaci'#243'n te volver'#225' a aparecer este mensaje y' +
+          'a que no aceptaste en su momento las normas de <b>bandaancha.eu<' +
+          '/b>.')
+      Borders.All = 5.000000000000000000
     end
   end
   inherited IdHTTP1: TIdHTTP
